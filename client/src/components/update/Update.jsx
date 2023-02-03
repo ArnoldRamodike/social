@@ -20,7 +20,7 @@ const Update = ({ setOpenUpdate, user }) => {
       try {
         const formData = new FormData();
         formData.append("file", file);
-        const res = await makeRequest.post("/upload", formData);
+        const res = await makeRequest.post("/upload",formData);
         return res.data;
       } catch (err) {
         console.log(err);
@@ -52,7 +52,7 @@ const Update = ({ setOpenUpdate, user }) => {
       
       let coverUrl;
       let profileUrl;
-      coverUrl = cover ? await upload(cover) : user.coverPic;
+      coverUrl = cover ?  await upload(cover) : user.coverPic;
       profileUrl = profile ? await upload(profile) : user.profilePic;
       
       mutation.mutate({ ...texts, coverPic: coverUrl, profilePic: profileUrl });
